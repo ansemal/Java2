@@ -1,0 +1,28 @@
+package com.javarush.task.task22.task2206;
+
+import java.util.Date;
+
+/* 
+Форматирование даты
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+        Date date = new Date();
+        System.out.printf((getFormattedString()) + "%n", date, date, date, date, date, date);
+        //должен быть вывод аналогичный следующему
+        //31:10:13 15:59:59
+    }
+
+    public static String getFormattedString() {
+        return "%td:%tm:%ty %tH:%tM:%tS";
+    }
+}
+/*
+Исправить метод getFormattedString так, чтобы он возвращал строку с параметрами для форматирования.
+Requirements:
+1. Метод getFormattedString должен быть публичным.
+2. Метод getFormattedString должен быть статическим.
+3. Вывод на экран должен соответствовать условию задачи.
+4. Метод getFormattedString должен возвращать строку с параметрами для форматирования согласно условию задачи.
+ */
