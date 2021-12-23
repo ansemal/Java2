@@ -3,7 +3,9 @@ package com.javarush.task.task22.task2209;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /* 
 Составить цепочку слов
@@ -31,11 +33,12 @@ public class Solution {
             return new StringBuilder();
         ArrayList<String> list = new ArrayList<>();
         StringBuilder builder = new StringBuilder();
-        ArrayList<String> tempList = new ArrayList<>(List.of(words));
+        ArrayList<String> tempList = new ArrayList<>();
+        Collections.addAll(tempList, words);
         list.add(tempList.get(0));
         tempList.remove(0);
         while (!tempList.isEmpty()) {
-            ArrayList<String> iterList = new ArrayList<>(List.copyOf(tempList));
+            ArrayList<String> iterList = (ArrayList<String>) tempList.stream().collect(Collectors.toList());
             for (String name : iterList) {
                 if (name.codePointAt(name.length()-1) == list.get(0).toLowerCase().codePointAt(0)) {
                     list.add(0, name);
